@@ -12,7 +12,7 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
 
-      - name: Setup Node and pnpm
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -20,6 +20,10 @@ jobs:
 
       - name: Install pnpm
         run: npm install -g pnpm@8
+        shell: bash
+
+      - name: Check pnpm version
+        run: pnpm --version
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

@@ -16,7 +16,7 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 8
-
+          
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -24,7 +24,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Generate posts index
         run: pnpm run generate-posts
@@ -35,7 +35,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
+          personal_token: ${{ secrets.ACCESS_TOKEN }}
           publish_dir: ./dist
           external_repository: MomoAiri/MomoAiri.github.io
           publish_branch: master

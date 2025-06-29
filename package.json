@@ -1,0 +1,36 @@
+{
+	"name": "momoi-airi-website",
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"generate-posts": "tsx scripts/generatePostsData.ts",
+		"build": "pnpm generate-posts && vite build",
+		"dev": "pnpm generate-posts && vite"
+	},
+	"dependencies": {
+		"glob": "^11.0.3",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-router-dom": "^7.6.3",
+		"rehype-autolink-headings": "^7.1.0",
+		"rehype-slug": "^6.0.0",
+		"remark-frontmatter": "^5.0.0",
+		"remark-gfm": "^4.0.1",
+		"remark-mdx-frontmatter": "^5.2.0",
+		"remark-parse": "^11.0.0",
+		"unified": "^11.0.5"
+	},
+	"devDependencies": {
+		"@mdx-js/react": "^2.3.0",
+		"@mdx-js/rollup": "^2.3.0",
+		"@types/glob": "^8.1.0",
+		"@types/node": "^24.0.7",
+		"@vitejs/plugin-react": "^4.0.0",
+		"@vitejs/plugin-vue": "^5.0.0",
+		"gray-matter": "^4.0.3",
+		"ts-node": "^10.9.2",
+		"tsx": "^4.20.3",
+		"typescript": "^5.0.0",
+		"vite": "^5.0.0"
+	}
+}

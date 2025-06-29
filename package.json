@@ -4,8 +4,8 @@
 	"type": "module",
 	"scripts": {
 		"generate-posts": "tsx scripts/generatePostsData.ts",
-		"build": "pnpm generate-posts && vite build",
-		"dev": "pnpm generate-posts && vite"
+		"build": "vite build",
+		"dev": "vite"
 	},
 	"dependencies": {
 		"glob": "^11.0.3",

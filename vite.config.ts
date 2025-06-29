@@ -5,24 +5,25 @@ import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 
 export default defineConfig({
-  plugins: [
-    react(),
-    mdx({
-      remarkPlugins: [
-        remarkFrontmatter,
-        [remarkMdxFrontmatter, { name: 'frontmatter' }]
-      ]
-    })
-  ],
-  build: {
-    rollupOptions: {
-      input: {
-        main: './index.html',
-        stickerEditor: './src/apps/StickerEditor/index.html'
-      }
-    }
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom']
-  }
+	base: '/',
+	plugins: [
+		react(),
+		mdx({
+			remarkPlugins: [
+				remarkFrontmatter,
+				[remarkMdxFrontmatter, { name: 'frontmatter' }]
+			]
+		})
+	],
+	build: {
+		rollupOptions: {
+			input: {
+				main: './index.html',
+				stickerEditor: './src/apps/StickerEditor/index.html'
+			}
+		}
+	},
+	optimizeDeps: {
+		include: ['react', 'react-dom', 'react-router-dom']
+	}
 })

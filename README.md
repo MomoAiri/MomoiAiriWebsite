@@ -6,36 +6,42 @@
 
 react + vite + pnpm + ts + @mdx-js + remark
 
+## 使用流程
+
+:root/posts 下面存放博客文章，使用 markdown 语法编写。
+`pnpm run generate-posts` 生成 mdx 静态语法的文章列表。
+`pnpm run dev` 启动开发环境。
+`git push` 通过 github action 自动部署到 github pages。
+
+## 接口
+
+``` ts: src/types/Post.ts
+export interface PostMeta {
+	title: string
+	date: string
+	url: string
+	tags?: string[]
+	category?: string
+}
+
+export interface Post {
+	frontmatter: PostMeta
+	content: React.ComponentType;
+}
+```
+
 ## 结构说明
 
 ```
 MomoiAiriWebsite/
+├── public/
+│   ├── apps/	# 一些单独 build 的页面应用。
+│   ├── pages/	# mdx 文件，单一页面。
+│   ├── posts/	# mdx 文件，文章页面。
 ├── src/
-│   ├── apps/
-│   │   # 用于存放单独的页面应用，不走通用逻辑，构建单独去 vite 里配置。
-│   │   └── StickerEditor/
-│   │       ├── App.tsx
-│   │       └── index.html
+│   ├── generated/
 │   ├── components/
-│   │   # ui 组件。
-│   │   ├── Header/
-│   │   │   ├── Header.module.css
-│   │   │   └── Header.tsx
-│   │   ├── Pages/
-│   │   │   ├── Page.module.css
-│   │   │   └── Page.tsx
-│   │   └── Posts/
-│   │       ├── Post.module.css
-│   │       ├── Post.tsx
-│   │       ├── PostList.module.css
-│   │       └── PostList.tsx
-│   ├── pages/
-│   │   # 用于存放博客单独页面，页面渲染方式和逻辑都是共用的，但不会被记录文章分类、标签这种东西。
-│   │   └── home.mdx
-│   ├── posts/
-│   │   # 博客文章页面，会自动处理编写时间、文章分类、标签这类字段。
-│   │   ├── hello-world.mdx
-│   │   └── index.ts
+│   ├── layouts/
 │   ├── types/
 │   │   └── Post.ts
 │   ├── App.tsx
@@ -47,7 +53,7 @@ MomoiAiriWebsite/
 
 ## 接口
 
-``` ts
+``` ts: src/types/Post.ts
 export interface PostMeta {
 	title: string
 	date: string

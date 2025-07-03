@@ -26,8 +26,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Generate posts index
-        run: pnpm run generate-posts
+      # - name: Generate posts index
+      #   run: pnpm run generate-posts
 
       - name: Build project
         run: pnpm run build

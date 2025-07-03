@@ -1,15 +1,29 @@
 {
 	"compilerOptions": {
-	  "target": "ESNext",
-	  "module": "CommonJS",
-	  "strict": true,
-	  "esModuleInterop": true,
-	  "skipLibCheck": true,
-	  "forceConsistentCasingInFileNames": true,
-	  "moduleResolution": "node"
+		"target": "ESNext",
+		"module": "CommonJS",
+		"jsx": "react",
+		"types": [
+			"react",
+			"react-dom"
+		],
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"moduleResolution": "node",
+		"baseUrl": ".",
+		"paths": {
+			"@/*": [
+				"src/*"
+			],
+			"@/types/*": [
+				"src/types/*"
+			]
+		}
 	},
 	"ts-node": {
-	  "esm": false,
-	  "experimentalSpecifierResolution": "node"
+		"esm": false,
+		"experimentalSpecifierResolution": "node"
 	}
-  }
+}

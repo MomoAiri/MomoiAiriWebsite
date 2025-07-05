@@ -10,12 +10,12 @@ async function getPost(slug: string, type: 'posts' | 'pages'): Promise<Post> {
 
   if (type === 'posts') {
     // 动态导入文章
-    const module = await import(`../../public/posts/${slug}.mdx`)
+    const module = await import(`../posts/${slug}.mdx`)
     content = module.default
     frontmatter = module.frontmatter
   } else {
     // 动态导入页面
-    const module = await import(`../../public/pages/${slug}.mdx`)
+    const module = await import(`../pages/${slug}.mdx`)
     content = module.default
     frontmatter = module.frontmatter
   }
